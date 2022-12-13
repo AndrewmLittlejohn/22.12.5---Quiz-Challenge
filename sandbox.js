@@ -1,0 +1,12 @@
+
+
+function quiz (){
+var 
+
+
+
+
+
+
+
+}

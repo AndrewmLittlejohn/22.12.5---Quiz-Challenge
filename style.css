@@ -1,0 +1,49 @@
+
+.custbody {
+margin-top: 25vh;
+
+
+}
+  
+  
+
+
+
+
+
+
+  /* media quries */
+  /* #region Main */
+  @media screen and (max-width: 1000px) {
+      h1 {
+          font-size: 40px;
+      }
+  
+      #header {
+          font-size: 70px;
+      }
+  
+      .question {
+          font-size: 35px;
+      }
+  }
+  
+
+
+  @media screen and (max-width: 750px) {
+    label {
+        width: 60%;
+    }
+  
+    #progress-wrap {
+        margin-top: 50px;
+        width: 60%;
+    }
+  }
+  
+  @media screen and (max-width: 570px) {
+    label {
+        width: 100%;
+    }
+  }
+/* #endregion */
