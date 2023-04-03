@@ -23,14 +23,16 @@ const qCa = [
   correctAnswer: 'December, 1996'
 }]
 var startBtn = document.getElementById('startBtn');
-var qBox = document.querySelector('#questionBox');
+var qBox = document.getElementById('questionBox');
 // var aBox = document.querySelectorAll('#answerbox');
 var submitBtn = document.getElementById('submit');
 var question = document.getElementById('question');
 var choices = document.getElementById('choices');
 // var rightAnswer = document.getElementById('answer');
-var scoreEl = document.getElementById('scoreBox');
 // var responseSelected = document.getElementsByName('options')
+
+let tally = document.getElementById('tally');
+var sBox = document.getElementById('scoreBox');
 
 const timer = 30;
 
@@ -41,8 +43,8 @@ let currentQuestion = 0;
 const totalQuestions = qCa.length
 
 function showQuestion() {
-  console.log("Fun in the sun")
-  const currentQ = qCa[currentQuestion];
+    const currentQ = qCa[currentQuestion];
+console.log(currentQ.question)
   question.innerHTML = currentQ.question;
   choices.innerHTML = "";
   console.log("Fun in the clouds")
@@ -59,10 +61,39 @@ function showQuestion() {
   submitBtn.style.display = "block";
 }
 
+function endGame() {
+  qBox.style.display = "none";
+  sBox.style.display = 'block'
+  startBtn.style.display = 'block'
+  tally.innerHTML = `${score}`;
+
+}
+
 startBtn.addEventListener("click", function() {
   startBtn.style.display = "none";
-  qBox.classList.add("show");
+  sBox.style.display = "none";
+  qBox.style.display = 'block';
+  score = 0;
+  currentQuestion = 0;
   showQuestion();
+});
+
+submitBtn.addEventListener("click", function() {
+  const answers = document.querySelectorAll('input[name="answer"]:checked');
+  if (answers.length > 0) {
+    const answerSelected = answers[0].value;
+    const correctAnswer = qCa[currentQuestion].correctAnswer;
+    if (answerSelected === correctAnswer) {
+      score++;
+    }
+    console.log(score);
+    currentQuestion++;
+    if (currentQuestion < totalQuestions) {
+      showQuestion();
+    } else {
+      endGame();
+    }
+  }
 });
 
 
@@ -82,25 +113,3 @@ startBtn.addEventListener("click", function() {
 
 
 
-
-function getAnswer(){
-
-// var responseSelected = document.getElementsByName('options')
-
-for (var i =0; i < responseSelected.length; i++){
-  if (responseSelected[i].checked && responseSelected[i].checked == rightAnswer.value){
-  document.getElementById('result').innerHTML  
-  = "Answered: "+responseSelected[i].value;
-  // } if (responseSelected[i].checked && responseSelected[i].checked == rightAnswer.value){
-  //   document.getElementById('result').innerHTML = "Wrong"
-  // }
-}
-
-  // if (responseSelected[i].checked) 
-  // document.getElementById('result').innerHTML
-  //   = "Answered: "+responseSelected[i].value;
-  // }
-}
-}
-
-submitBtn.addEventListener('click', getAnswer);

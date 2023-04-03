@@ -48,20 +48,21 @@
       <div class="card-body custbody">
         <h5 class="card-title"></h5>
         <p class="card-text">Welcome to the Quiz Game.</p>
-        <button id="startBtn" class="btn btn-primary">Start Game</a>
-
-
-        <div id="questionBox">
-          <h2 id="question">Question</h2>
-          <ul id="choices">
-
-          </ul>
-          <button id="submit" class="btn btn-primary">Submit</button>
-        </div>
-        <div id="scoreBox">
-
-        </div>
+        <button id="startBtn" class="btn btn-primary">Start Game</button>
       </div>
+
+        <div class="card text-center" id="questionBox" style="display:none;" >
+          <p id="question"></p>
+          <ul id="choices">
+          </ul>
+          <button id="submit">Submit</button>
+        </div>
+        <div id="scoreBox" class="card text-center" >
+          <h4>Your Score is <a id="tally"></a></h4>
+
+
+
+        </div>
   
      
 
