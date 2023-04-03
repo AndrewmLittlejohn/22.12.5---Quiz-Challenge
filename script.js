@@ -30,14 +30,26 @@ var question = document.getElementById('question');
 var choices = document.getElementById('choices');
 // var rightAnswer = document.getElementById('answer');
 // var responseSelected = document.getElementsByName('options')
-
+var timerBox = document.getElementById('timerBox');
 let tally = document.getElementById('tally');
 var sBox = document.getElementById('scoreBox');
+
+var initialsBtn = document.getElementById('addInitials');
+var iBox = document.getElementById('initials');
 
 const timer = 30;
 
 var score = 0;
 var timeRemaining = timer;
+
+const timerInterval = setInterval(function() {
+timeRemaining--;
+timerBox.innerHTML = `Seconds Remaining ${timeRemaining}`;
+if(timeRemaining ===0) {
+  clearInterval(timerInterval);
+  endGame();
+}
+}, 1000)
 
 let currentQuestion = 0;
 const totalQuestions = qCa.length
@@ -66,15 +78,17 @@ function endGame() {
   sBox.style.display = 'block'
   startBtn.style.display = 'block'
   tally.innerHTML = `${score}`;
-
+  iBox.style.display = 'block';
 }
 
 startBtn.addEventListener("click", function() {
   startBtn.style.display = "none";
   sBox.style.display = "none";
+  iBox.style.display = "none"
   qBox.style.display = 'block';
   score = 0;
   currentQuestion = 0;
+  timeRemaining = 30;
   showQuestion();
 });
 
@@ -85,6 +99,8 @@ submitBtn.addEventListener("click", function() {
     const correctAnswer = qCa[currentQuestion].correctAnswer;
     if (answerSelected === correctAnswer) {
       score++;
+    } else {
+      timeRemaining -=5
     }
     console.log(score);
     currentQuestion++;
@@ -96,6 +112,9 @@ submitBtn.addEventListener("click", function() {
   }
 });
 
+initialsBtn.addEventListener("click", function () {
+  iBox.style.display = "none"
+});
 
 
 

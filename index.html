@@ -51,25 +51,30 @@
         <button id="startBtn" class="btn btn-primary">Start Game</button>
       </div>
 
-        <div class="card text-center" id="questionBox" style="display:none;" >
-          <p id="question"></p>
-          <ul id="choices">
-          </ul>
-          <button id="submit">Submit</button>
-        </div>
-        <div id="scoreBox" class="card text-center" >
-          <h4>Your Score is <a id="tally"></a></h4>
+      <div class="card text-center" id="questionBox" style="display:none;" >
+        <p id="timerBox"></p>
 
-
-
-        </div>
-  
-     
-
-    </div>
-
+        <p id="question"></p>
+        <ul id="choices">
+        </ul>
+        <button id="submit">Submit</button>
+      </div>
+        
+      <div id="scoreBox" class="card text-center">
+        <h4>Your Score is <a id="tally"></a></h4>
+      </div>
+    
+      <div id="initials" class="card text-center" style="display:none;">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Enter Initials Here" aria-label="ID highscore">
+          <button id="addInitials" class="btn btn-outline-success" type="submit">Submit</button>
+        </form>
+      </div>
+    
+    
     </div>
   </div>
+ 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
